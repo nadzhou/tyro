@@ -1,0 +1,11 @@
+biopython==1.78
+certifi==2020.12.5
+joblib @ file:///tmp/build/80754af9/joblib_1607970656719/work
+mkl-fft==1.2.0
+mkl-random==1.1.1
+mkl-service==2.3.0
+numpy==1.20.0
+scikit-learn @ file:///tmp/build/80754af9/scikit-learn_1598376899566/work
+scipy @ file:///tmp/build/80754af9/scipy_1597686649129/work
+six @ file:///tmp/build/80754af9/six_1605205327372/work
+threadpoolctl @ file:///tmp/tmp9twdgx9k/threadpoolctl-2.1.0-py3-none-any.whl

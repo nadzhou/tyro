@@ -4,7 +4,7 @@ import numpy as np
 from sklearn.svm import SVC
 
 def main(): 
-    file_path = "/home/nadzhou/Downloads/apobecs.fasta"
+    file_path = "apobecs_psi.fa.txt"
     seq_record = retrieve_seq(file_path)
     
     tyr_list = []
