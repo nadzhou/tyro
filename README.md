@@ -19,3 +19,7 @@ Just run
   
   $ python tyro.py
  ```
+## Sample output 
+Given an array of weight - which we got from a template Apobec protein sequence - the algorithm can predict whether these weights are a potential site for tyrosulfation or not. The output is as follows: 
+
+![image](https://user-images.githubusercontent.com/25282805/106462230-9e25c400-64b7-11eb-882e-0b500fbbaa4b.png)
