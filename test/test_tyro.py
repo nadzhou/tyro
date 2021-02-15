@@ -29,5 +29,8 @@ class TestTyro(unittest.TestCase):
         self.assertEqual(result, self.tyro.give_weights().tolist())
 
 
+    def test_checksum(self): 
+        print(self.tyro.check_sum())
+
 if __name__ == "__main__": 
     unittest.main()

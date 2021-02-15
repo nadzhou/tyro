@@ -68,11 +68,7 @@ def check_sum(np_array):
 
 def _check_sum(array): 
     """If values sum greater than 0, it's a site of possible sulfation otherwise not."""
-    if np.sum(array) > 0: 
-        return "sulfation"
-
-    if np.sum(array) < 0: 
-        return "no sulfation"
+    return np.sum(array) > 0: 1
 
 
 if __name__ == '__main__': 
