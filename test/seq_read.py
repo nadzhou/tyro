@@ -14,6 +14,7 @@ class ParseSeq(object):
 
 
     def contains(self, item: List) -> bool: 
+        """Check if given item is present in the sequences."""
         for record in self.read_seq(): 
             if item in record.id: 
                 return True
