@@ -2,14 +2,29 @@ import unittest
 from seq_read import ParseSeq
 import numpy as np
 from manipulate_tyro import TyroManipulate
+from svm_classify import SulfoSVM
+
+
+def svm(): 
+    tyro_sample = np.array([[-0.2, -0.2, -0.2,  1], 
+                        [-0.2, -0.2, -0.2, -0.2]], 
+                        [-0.2, -0.2, -0.2, -0.2]])
+    sulfation = np.array([[1], 
+                            [0], 
+                            [0]])
+
+    return SulfoSVM(tyro_sample, sulfation, 0.5)
+
 
 class TestTyro(unittest.TestCase): 
-    
+
     @classmethod
     def setUpClass(cls): 
         file_dir = "../apobecs_psi.fa.txt"
         cls.apobec_seqs = ParseSeq(file_dir, "fasta")
         cls.tyro = TyroManipulate(["A", "C", "T", "Y"]) 
+        cls.svm = svm()
+
 
 
     def test_read_seq(self): 
@@ -30,7 +45,13 @@ class TestTyro(unittest.TestCase):
 
 
     def test_checksum(self): 
-        print(self.tyro.check_sum())
+        result = [1]
+        self.assertEqual(self.tyro.check_sum(), result)
+
+    def test_svm_classify(self): 
+        print(self.svm.cros_validate())
+
+
 
 if __name__ == "__main__": 
     unittest.main()
