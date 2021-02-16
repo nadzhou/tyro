@@ -7,11 +7,13 @@ from svm_classify import SulfoSVM
 
 def svm(): 
     tyro_sample = np.array([[-0.2, -0.2, -0.2,  1], 
-                        [-0.2, -0.2, -0.2, -0.2]], 
-                        [-0.2, -0.2, -0.2, -0.2]])
+                        [-0.2, -0.2, -0.2, -0.2], 
+                        [-0.2, -0.2, -0.2, -0.2], 
+                        [-0.2, 1, -0.2,  -0.2] ])
     sulfation = np.array([[1], 
                             [0], 
-                            [0]])
+                            [0], 
+                            [1]])
 
     return SulfoSVM(tyro_sample, sulfation, 0.5)
 
@@ -49,7 +51,8 @@ class TestTyro(unittest.TestCase):
         self.assertEqual(self.tyro.check_sum(), result)
 
     def test_svm_classify(self): 
-        print(self.svm.cros_validate())
+        expected = np.array([0.5, 0.5])
+        self.assertEqual(self.svm.cros_validate().all(), expected.all())
 
 
 
