@@ -1,8 +1,8 @@
 import unittest
-from seq_read import ParseSeq
+from tyro.seq_read import ParseSeq
 import numpy as np
-from manipulate_tyro import TyroManipulate
-from svm_classify import SulfoSVM
+from tyro.manipulate_tyro import TyroManipulate
+from tyro.svm_classify import SulfoSVM
 
 
 def svm(): 
@@ -22,16 +22,19 @@ class TestTyro(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls): 
-        file_dir = "../apobecs_psi.fa.txt"
+        file_dir = "../apobecs_psi.fa"
         cls.apobec_seqs = ParseSeq(file_dir, "fasta")
-        cls.tyro = TyroManipulate(["A", "C", "T", "Y"]) 
+        cls.tyro = TyroManipulate(["ACTY"]) 
         cls.svm = svm()
-
 
 
     def test_read_seq(self): 
         apobec_name = "NP_001635.2"
         self.assertTrue(self.apobec_seqs.contains(apobec_name))
+
+    def test_tokenize(self): 
+        expected = ["A", "C", "T", "Y"]
+        self.assertEqual(self.tyro.tokenize(), expected)
 
 
     def test_encode2int(self): 

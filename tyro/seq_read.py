@@ -10,7 +10,10 @@ class ParseSeq(object):
 
     def read_seq(self) -> List: 
         """Read the sequences."""
-        return list(SeqIO.parse(self.file_dir, self.format))
+        return SeqIO.parse(self.file_dir, self.format)
+
+    def tokenize(self) -> np.ndarray: 
+        return [char for seqs in self.read_seq() for char in seqs.seq]
 
 
     def contains(self, item: List) -> bool: 

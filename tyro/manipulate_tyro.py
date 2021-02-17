@@ -3,17 +3,20 @@ import numpy as np
 
 class TyroManipulate: 
     def __init__(self, sequence): 
-        self.sequence = np.array(sequence)
+        self.sequence = sequence
         self.encoded = None 
 
-
         if self.encoded == None: 
+            self.sequence = self.seq2np()
             self.encoded = self.encode2int()
 
 
+    def seq2np(self) -> np.ndarray:
+        return np.asarray(self.sequence, dtype='S1')
+
     def encode2int(self) -> np.ndarray:
         """Encode the sequences into respective integers."""
-        return np.array([ord(char) for char in self.sequence])
+        return self.sequence.view(np.uint8)
 
 
     def give_weights(self) -> np.ndarray: 
