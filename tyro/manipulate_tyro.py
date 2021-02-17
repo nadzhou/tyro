@@ -24,7 +24,7 @@ class TyroManipulate:
         important_ordinals = [68, 69, 89]
         self.encoded = np.where(np.isin(self.encoded, important_ordinals), 1, self.encoded)
         self.encoded = np.where(self.encoded != 1, -0.2, self.encoded)
-
+        self.encoded = np.array_split(self.encoded, 40)
         return self.encoded
 
 
@@ -35,6 +35,7 @@ class TyroManipulate:
 
     def _check_sum(self, array: np.ndarray) -> int: 
         """Softmax for 1 or 0."""
+        print(array.shape)
         if np.sum(array) > 0: 
             return 1
         return 0
